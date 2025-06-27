@@ -1,4 +1,4 @@
-name: Generate Portfolio Page
+name: generate portfolio page
 
 on:
   push:
@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: set up python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Generate HTML page
+      - name: generate html page
         run: python generate_html.py
 
-      - name: Commit changes
+      - name: commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Auto-generate index.html" || echo "No changes to commit"
+          git add .
+          git commit -m "auto-generate index.html" || echo "no changes to commit"
           git push
