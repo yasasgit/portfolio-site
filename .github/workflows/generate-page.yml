@@ -23,6 +23,10 @@ jobs:
       - name: Generate HTML
         run: python generate_html.py
 
+      - name: Copy assets folder to build directory
+        run: |
+          cp -r assets build/
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
