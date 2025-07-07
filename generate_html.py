@@ -1,3 +1,8 @@
+import os
+
+# Create the build directory if it doesn't exist
+os.makedirs("build", exist_ok=True)
+
 html_content = """
 <!DOCTYPE html>
 <html lang="en">
