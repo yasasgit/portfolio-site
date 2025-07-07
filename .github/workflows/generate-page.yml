@@ -1,4 +1,4 @@
-name: Build & Deploy Portfolio Site
+name: build-and-deploy-portfolio-site
 
 on:
   push:
