@@ -21,10 +21,9 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install flake8 black
-
+          
       - name: Lint Python with flake8
-        run: |
-          flake8 generate_html.py
+        run: flake8 generate_html.py
 
       - name: Format Python with black (check only)
         run: |
