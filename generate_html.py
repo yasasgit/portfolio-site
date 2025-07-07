@@ -13,5 +13,5 @@ html_content = """
 </html>
 """
 
-with open("index.html", "w") as f:
+with open("build/index.html", "w") as f:
     f.write(html_content)
