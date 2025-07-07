@@ -88,33 +88,31 @@ layout = """
 """
 
 hero_section = """
-    <!-- page header -->
-    <header id="home" class="header">
-        <div class="overlay"></div>
-        <div class="header-content container">
-            <h1 class="header-title">
-                <span class="up">Heyy!</span>
-                <span class="down">I am Yasas Harshana</span>
-            </h1>
-            <p class="header-subtitle">SOFTWARE ENGINEER & DEVOPS ENTHUSIAST</p>
-
-            <button class="btn btn-primary">Visit My Works</button>
-        </div>
-    </header><!-- end of page header -->
-    <div class="about">
-                <div class="about-img-holder">
-                    <img src="assets/imgs/man.png" class="about-img"
-                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                </div>
-                <div class="about-caption">
-                    <p class="section-subtitle">Who Am I ?</p>
-                    <h2 class="section-title mb-3">About Me</h2>
-                    <p>
-I'm Yasas Harshana, a DevOps enthusiast with experience in CI/CD, Linux, and AWS.
-                    </p>
-                    <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
-                </div>
-            </div><!-- end of about wrapper -->
+            <!-- page header -->
+<header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+        <h1 class="header-title">
+            <span class="up">Heyy!</span>
+            <span class="down">I am Yasas Harshana</span>
+        </h1>
+        <p class="header-subtitle">SOFTWARE ENGINEER & DEVOPS ENTHUSIAST</p>
+        <a href="blog.html" class="btn btn-primary">Read My DevOps Articles</a>
+    </div>
+</header><!-- end of page header -->
+<div class="about">
+    <div class="about-img-holder">
+        <img src="assets/imgs/man.png" class="about-img" alt="yasas harshana avatar">
+    </div>
+    <div class="about-caption">
+        <p class="section-subtitle">Who Am I?</p>
+        <h2 class="section-title mb-3">About Me</h2>
+        <p>
+            I'm Yasas Harshana, a DevOps enthusiast with 1.5+ years of experience in software delivery, CI/CD, and healthcare system reliability. I enjoy automating deployments, optimizing Linux systems, and enabling scalable backend operations using cloud technologies.
+        </p>
+        <a href="assets/Yasas_Harshana_CV.pdf" class="btn-rounded btn btn-outline-primary mt-4">Download CV</a>
+    </div>
+</div><!-- end of about wrapper -->
 """
 
 pages = {
@@ -126,21 +124,22 @@ pages = {
         "title": "Contact",
         "content": """
     <!-- contact section -->
-    <section class="section" id="contact">
-        <div class="container text-center">
-            <p class="section-subtitle">How can you communicate?</p>
-            <h6 class="section-title mb-5">Contact Me</h6>
+<section class="section" id="contact">
+    <div class="container text-center">
+        <p class="section-subtitle">How can you communicate?</p>
+        <h6 class="section-title mb-5">Contact Me</h6>
 
-            <div class="contact-details col-md-8 col-lg-6 m-auto text-left">
-                <ul class="list-unstyled">
-                    <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></li>
-                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></li>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></li>
-                    <li><strong>Location:</strong> Your City, Country</li>
-                </ul>
-            </div>
-        </div><!-- end of container -->
-    </section><!-- end of contact section -->
+        <div class="contact-details col-md-8 col-lg-6 m-auto text-left">
+            <ul class="list-unstyled">
+                <li><strong>Email:</strong> <a href="mailto:yasas99@outlook.com">yasas99@outlook.com</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yasas-harshana" target="_blank">linkedin.com/in/yasas-harshana</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/yasasgit" target="_blank">github.com/yasasgit</a></li>
+                <li><strong>Location:</strong> Colombo, Sri Lanka</li>
+            </ul>
+        </div>
+    </div><!-- end of container -->
+</section><!-- end of contact section -->
+
     """
     }
 }

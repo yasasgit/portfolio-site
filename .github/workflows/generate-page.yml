@@ -17,17 +17,32 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install flake8 black
 
-      - name: Generate HTML
+      - name: Lint Python with flake8
+        run: |
+          flake8 generate_html.py
+
+      - name: Format Python with black (check only)
+        run: |
+          black --check generate_html.py
+
+      - name: Lint Markdown files (optional)
+        run: |
+          npm install -g markdownlint-cli
+          markdownlint articles/*.md
+
+      - name: Generate HTML from Markdown
         run: python generate_html.py
 
       - name: Copy assets folder to build directory
         run: |
           cp -r assets build/
 
-      - name: Deploy to gh-pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
