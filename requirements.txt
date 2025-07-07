@@ -1,8 +1,2 @@
-
----
-
-## 🧪 `requirements.txt` (updated)
-
-```txt
 markdown
 jinja2
