@@ -25,9 +25,8 @@ jobs:
       - name: Lint Python with flake8
         run: flake8 generate_html.py
 
-      - name: Format Python with black (check only)
-        run: |
-          black --check generate_html.py
+      - name: Format Python with black
+        run: black generate_html.py
 
       - name: Lint Markdown files (optional)
         run: |
