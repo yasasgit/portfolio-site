@@ -11,7 +11,7 @@ layout = """
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with Meyawo landing page.">
     <meta name="author" content="Devcrud">
-    <title>Meyawo Landing page | Free Bootstrap 4.3.x landing page</title>
+    <title>Yasas Harshana - Portfolio Landing page</title>
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap + Meyawo main styles -->
@@ -61,9 +61,9 @@ layout = """
         <div class="header-content container">
             <h1 class="header-title">
                 <span class="up">HI!</span>
-                <span class="down">I am John Doe</span>
+                <span class="down">I am Yasas Harshana</span>
             </h1>
-            <p class="header-subtitle">FRONTEND WEB DESIGNER</p>
+            <p class="header-subtitle">Software Engineer</p>
 
             <button class="btn btn-primary">Visit My Works</button>
         </div>
@@ -89,7 +89,7 @@ layout = """
                         <br>culpa! Quasi quibusdam hic recusandae delectus velit officiis explicabo voluptatibus! Nemo
                         esse similique, voluptates labore distinctio, placeat explicabo facilis molestias, blanditiis
                         culpa iusto voluptatem ratione eligendi a, quia temporibus velit vero ipsa sint ex voluptatum
-                        expedita aliquid! Debitis, nam!
+                        expedita aliquid! Debitis, nam! I’m an aspiring DevOps/SRE engineer passionate about automation and cloud infrastructure.
                     </p>
                     <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
                 </div>
@@ -460,6 +460,14 @@ layout = """
 
 </html>
 """
+
+# Static pages
+pages = {
+    "projects.html": {
+        "title": "Projects",
+        "content": "<h1>Projects</h1><ul><li>DevOps Portfolio Site</li><li>Dockerized Flask App</li></ul>"
+    }
+}
 
 # Create build dir
 os.makedirs("build", exist_ok=True)
