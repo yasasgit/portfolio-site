@@ -1,5 +1,6 @@
 import os
 import markdown
+import re
 
 layout = """
 <!DOCTYPE html>
@@ -28,12 +29,6 @@ layout = """
                 </li>
                 <li class="item">
                     <a class="link" href="about.html">About</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="portfolio.html">Portfolio</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="testmonial.html">Testmonial</a>
                 </li>
                 <li class="item">
                     <a class="link" href="blog.html">Blog</a>
@@ -111,7 +106,6 @@ hero_section = """
     </header><!-- end of page header -->
 """
 
-# Static pages
 pages = {
     "index.html": {
         "title": "Yasas Harshana",
@@ -134,262 +128,6 @@ I'm Yasas Harshana, a DevOps enthusiast with experience in CI/CD, Linux, and AWS
                     <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
                 </div>
             </div><!-- end of about wrapper -->
-"""
-    },
-    "services.html": {
-        "title": "Services",
-        "content": """
-    <!-- service section -->
-    <section class="section" id="service">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Do ?</p>
-            <h6 class="section-title mb-6">Service</h6>
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/pencil-case.svg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
-                            <h6 class="title">Adipisicing</h6>
-                            <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam
-                                molestias dolorem iste quod.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/responsive.svg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
-                            <h6 class="title">Sapiente</h6>
-                            <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam
-                                molestias dolorem iste quod.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/toolbox.svg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
-                            <h6 class="title">Placeat</h6>
-                            <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam
-                                molestias dolorem iste quod.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/analytics.svg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
-                            <h6 class="title">Iusto</h6>
-                            <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam
-                                molestias dolorem iste quod.</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- end of row -->
-        </div>
-    </section><!-- end of service section -->
-"""
-    },
-        "portfolio.html": {
-        "title": "Portfolio",
-        "content": """
-<!-- portfolio section -->
-    <section class="section" id="portfolio">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Did ?</p>
-            <h6 class="section-title mb-6">Portfolio</h6>
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img src="assets/imgs/folio-1.jpg" class="portfolio-card-img"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/folio-2.jpg" class="img-responsive rounded"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/folio-3.jpg" class="img-responsive rounded"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-            </div><!-- end of row -->
-        </div><!-- end of container -->
-    </section> <!-- end of portfolio section -->
-"""
-    },
-    "pricing.html": {
-        "title": "Pricing",
-        "content": """
-<!-- pricing section -->
-    <section class="section" id="pricing">
-        <div class="container text-center">
-            <p class="section-subtitle">How Much I Charge ?</p>
-            <h6 class="section-title mb-6">My Pricing</h6>
-            <!-- row -->
-            <div class="pricing-wrapper">
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/scooter.svg"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">Free</h6>
-                        <div class="pricing-card-list">
-                            <p>accusamus reprehenderit</p>
-                            <p>provident dolorem </p>
-                            <p>quos neque</p>
-                            <p>fugiat quibusdam</p>
-                            <p><i class="ti-close"></i></p>
-                            <p><i class="ti-close"></i></p>
-                        </div>
-                    </div>
-                    <div class="pricing-card-footer">
-                        <span>$</span>
-                        <span>0.00/Month</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/shipped.svg"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">Basic</h6>
-                        <div class="pricing-card-list">
-                            <p>accusamus reprehenderit</p>
-                            <p>provident dolorem </p>
-                            <p>quos neque</p>
-                            <p>fugiat quibusdam</p>
-                            <p>accusamus laboriosam</p>
-                            <p><i class="ti-close"></i></p>
-                        </div>
-                    </div>
-                    <div class="pricing-card-footer">
-                        <span>$</span>
-                        <span>9.99/Month</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <img class="pricing-card-icon" src="assets/imgs/startup.svg"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="pricing-card-body">
-                        <h6 class="pricing-card-title">Premium</h6>
-                        <div class="pricing-card-list">
-                            <p>accusamus reprehenderit</p>
-                            <p>provident dolorem </p>
-                            <p>quos neque</p>
-                            <p>fugiat quibusdam</p>
-                            <p>accusamus laboriosam</p>
-                            <p>inventore omnis</p>
-                        </div>
-                    </div>
-                    <div class="pricing-card-footer">
-                        <span>$</span>
-                        <span>99.9/Month</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
-                </div>
-
-            </div><!-- end of pricing wrapper -->
-        </div> <!-- end of container -->
-    </section><!-- end of pricing section -->
-        <!-- section -->
-    <section class="section-sm bg-primary">
-        <!-- container -->
-        <div class="container text-center text-sm-left">
-            <!-- row -->
-            <div class="row align-items-center">
-                <div class="col-sm offset-md-1 mb-4 mb-md-0">
-                    <h6 class="title text-light">Want to work with me?</h6>
-                    <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
-                </div>
-                <div class="col-sm offset-sm-2 offset-md-3">
-                    <button class="btn btn-lg my-font btn-light rounded">Hire Me</button>
-                </div>
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of section -->
-"""
-    },
-        "testimonial.html": {
-        "title": "Testimonial",
-        "content": """
-    <!-- testimonial section -->
-    <section class="section" id="testmonial">
-        <div class="container text-center">
-            <p class="section-subtitle">What Think Client About Me ?</p>
-            <h6 class="section-title mb-6">Testmonial</h6>
-
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/avatar2.jpg" class="testimonial-card-img"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit. Eaque doloribus autem aperiam earum nostrum omnis blanditiis corporis perspiciatis
-                                adipisci nihil.</p>
-                            <h6 class="testimonial-card-title">Emily Reb</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/avatar3.jpg" class="testimonial-card-img"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit. Eaque doloribus autem aperiam earum nostrum omnis blanditiis corporis perspiciatis
-                                adipisci nihil.</p>
-                            <h6 class="testimonial-card-title">Emily Reb</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end of container -->
-    </section> <!-- end of testimonial section -->
 """
     },
     "blog.html": {
@@ -459,74 +197,109 @@ I'm Yasas Harshana, a DevOps enthusiast with experience in CI/CD, Linux, and AWS
     </section><!-- end of blog section -->
 """
     },
-        "contact.html": {
+    "contact.html": {
         "title": "Contact",
         "content": """
-<!-- contact section -->
+    <!-- contact section -->
     <section class="section" id="contact">
         <div class="container text-center">
             <p class="section-subtitle">How can you communicate?</p>
             <h6 class="section-title mb-5">Contact Me</h6>
-            <!-- contact form -->
-            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
-                <div class="form-row">
-                    <div class="form-group col-sm-6">
-                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" placeholder="Enter Email" requried>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <textarea name="comment" id="comment" rows="6" class="form-control"
-                            placeholder="Write Something"></textarea>
-                    </div>
-                    <div class="form-group col-sm-12 mt-3">
-                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
-                    </div>
-                </div>
-            </form><!-- end of contact form -->
+
+            <div class="contact-details col-md-8 col-lg-6 m-auto text-left">
+                <ul class="list-unstyled">
+                    <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></li>
+                    <li><strong>Location:</strong> Your City, Country</li>
+                </ul>
+            </div>
         </div><!-- end of container -->
     </section><!-- end of contact section -->
-"""
-    },
+    """
+    }
 }
 
-# Create build dir
 os.makedirs("build", exist_ok=True)
 
-# Generate static pages
 for filename, data in pages.items():
     hero = hero_section if filename == "index.html" else ""
     full_html = layout.format(title=data["title"], content=data["content"], hero=hero)
-
     with open(os.path.join("build", filename), "w") as f:
         f.write(full_html)
 
-# Handle markdown articles
-article_links = []
+article_cards = []
 article_dir = "articles"
+
 for md_file in os.listdir(article_dir):
     if md_file.endswith(".md"):
         filepath = os.path.join(article_dir, md_file)
-        with open(filepath, "r") as f:
+        with open(filepath, "r", encoding="utf-8") as f:
             md_content = f.read()
-            html_content = markdown.markdown(md_content)
-            title = md_content.splitlines()[0].replace("#", "").strip()
-            html_page = layout.format(title=title, content=html_content)
 
-            article_filename = md_file.replace(".md", ".html")
-            with open(f"build/{article_filename}", "w") as out:
-                out.write(html_page)
+        metadata = {
+            "title": "Untitled",
+            "author": "Admin",
+            "image": "assets/imgs/img-1.jpg",
+            "date": "2025-01-01"
+        }
 
-            article_links.append(f"<li><a href='{article_filename}'>{title}</a></li>")
+        meta_match = re.search(r"<!--(.*?)-->", md_content, re.DOTALL)
+        if meta_match:
+            meta_lines = meta_match.group(1).strip().splitlines()
+            for line in meta_lines:
+                key, _, value = line.partition(":")
+                metadata[key.strip()] = value.strip()
 
-# Generate article index page
-article_index = "<h1>Articles</h1><ul>" + "\n".join(article_links) + "</ul>"
-article_index_html = layout.format(title="Articles", content=article_index)
-with open("build/blog.html", "w") as f:
+        for line in md_content.splitlines():
+            if line.startswith("#"):
+                metadata["title"] = line.replace("#", "").strip()
+                break
+
+        md_content_clean = re.sub(r"<!--(.*?)-->", "", md_content, flags=re.DOTALL)
+        html_content = markdown.markdown(md_content_clean)
+        article_filename = md_file.replace(".md", ".html")
+
+        text_only = re.sub('<[^<]+?>', '', html_content)
+        excerpt = text_only[:300] + "..."
+
+        article_page = layout.format(
+            title=metadata["title"],
+            content=html_content,
+            hero=""
+        )
+        with open(f"build/{article_filename}", "w", encoding="utf-8") as out:
+            out.write(article_page)
+
+        blog_card_html = f"""
+        <div class="blog-card">
+            <div class="blog-card-header">
+                <img src="{metadata['image']}" class="blog-card-img" alt="blog image">
+            </div>
+            <div class="blog-card-body">
+                <h5 class="blog-card-title">{metadata['title']}</h5>
+                <p class="blog-card-caption">
+                    <a href="#">By: {metadata['author']}</a>
+                    <a href="#"><i class="ti-calendar"></i> {metadata['date']}</a>
+                </p>
+                <p>{excerpt}</p>
+                <a href="{article_filename}" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+            </div>
+        </div>
+        """
+        article_cards.append(blog_card_html)
+
+blog_html = f"""
+<!-- blog section -->
+<section class="section" id="blog">
+    <div class="container text-center">
+        <p class="section-subtitle">Recent Posts</p>
+        <h6 class="section-title mb-6">Blog</h6>
+        {''.join(article_cards)}
+    </div>
+</section>
+"""
+
+article_index_html = layout.format(title="Blog", content=blog_html, hero="")
+with open("build/blog.html", "w", encoding="utf-8") as f:
     f.write(article_index_html)
-
-for md_file in os.listdir(article_dir):
-    ...
-    html_page = layout.format(title=title, content=html_content, hero="")
-    ...
