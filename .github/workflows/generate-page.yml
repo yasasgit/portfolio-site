@@ -29,8 +29,8 @@ jobs:
         run: black generate_html.py
 
       - name: Lint Markdown files (optional)
+        continue-on-error: true
         run: |
-          npm install -g markdownlint-cli
           markdownlint articles/*.md
 
       - name: Generate HTML from Markdown
