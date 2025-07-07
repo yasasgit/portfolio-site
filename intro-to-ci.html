@@ -51,11 +51,87 @@
         <section class="section" id="blog-post">
             <div class="container text-left">
                 <h2 class="mb-4">Introduction to CI/CD</h2>
-                <p class="text-muted mb-2"><strong>By:</strong> Admin | <strong>Date:</strong> 2025-01-01</p>
+                <p class="text-muted mb-2"><strong>By:</strong> Yasas Harshana | <strong>Date:</strong> 2025-07-07</p>
                 <div class="article-content">
                     <h1>Introduction to CI/CD</h1>
-<p>Continuous Integration (CI) is the practice of testing code every time a change is made.</p>
-<p>Continuous Deployment (CD) takes it further by automatically deploying to production.</p>
+<p>In modern software development, delivering features quickly and reliably is crucial. That’s where <strong>CI/CD</strong> comes in. Short for <strong>Continuous Integration</strong> and <strong>Continuous Delivery/Deployment</strong>, CI/CD automates the process of building, testing, and deploying code—making software delivery faster and safer.</p>
+<hr />
+<h2>What is CI/CD?</h2>
+<h3>Continuous Integration (CI)</h3>
+<p>CI is the practice of automatically building and testing code every time a team member commits changes to version control (like Git).</p>
+<p><strong>Benefits of CI:</strong>
+- Detect bugs early
+- Prevent integration issues
+- Maintain a stable main branch
+- Reduce manual testing effort</p>
+<h3>Continuous Delivery (CD)</h3>
+<p>CD ensures that your application can be safely released to production at any time. Every successful CI build is automatically prepared for deployment.</p>
+<p><strong>Continuous Deployment</strong> (also CD) goes a step further—automatically deploying each code change to production without manual approval.</p>
+<p><strong>Benefits of CD:</strong>
+- Faster release cycles
+- Reduced deployment risk
+- Improved developer productivity
+- Quicker feedback loops</p>
+<hr />
+<h2>CI/CD Pipeline Components</h2>
+<p>A typical CI/CD pipeline includes:</p>
+<p>| Stage           | Description                                               |
+|----------------|-----------------------------------------------------------|
+| <strong>Source</strong>      | Triggered by a code push or pull request                  |
+| <strong>Build</strong>       | Compiles code, installs dependencies                      |
+| <strong>Test</strong>        | Runs unit/integration tests to catch errors               |
+| <strong>Package</strong>     | Bundles the application into artifacts (e.g., Docker)     |
+| <strong>Deploy</strong>      | Pushes the code to staging or production                  |</p>
+<hr />
+<h2>Example: Simple CI with GitHub Actions</h2>
+<p>```yaml</p>
+<h1>.github/workflows/ci.yml</h1>
+<p>name: CI Pipeline</p>
+<p>on: [push, pull_request]</p>
+<p>jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest
+````</p>
+<p>This example:</p>
+<ul>
+<li>Runs on every push or pull request</li>
+<li>Sets up Python</li>
+<li>Installs dependencies</li>
+<li>Runs tests</li>
+</ul>
+<hr />
+<h2>Tools Used in CI/CD</h2>
+<p>Here are some popular tools you can explore:</p>
+<p>| Purpose          | Tools                              |
+| ---------------- | ---------------------------------- |
+| CI/CD Platforms  | GitHub Actions, GitLab CI, Jenkins |
+| Containerization | Docker, Podman                     |
+| Orchestration    | Kubernetes, Helm                   |
+| IaC              | Terraform, Ansible                 |
+| Monitoring       | Prometheus, Grafana, ELK Stack     |</p>
+<hr />
+<h2>Final Thoughts</h2>
+<p>CI/CD is a cornerstone of modern DevOps practices. It enables teams to ship code confidently and frequently while ensuring software quality. Start small—perhaps with automated testing—and gradually expand your pipeline to include more stages and environments.</p>
+<blockquote>
+<p>🚀 Automate early, deliver often.</p>
+</blockquote>
+<hr />
+<p><strong>Next Steps:</strong></p>
+<ul>
+<li>Try creating your own GitHub Actions workflow</li>
+<li>Explore setting up a staging environment for testing deployments</li>
+<li>Learn about containerizing your app using Docker</li>
+</ul>
                 </div>
             </div>
         </section>
