@@ -240,4 +240,3 @@ blog_html = f"""
 article_index_html = layout.format(title="Blog", content=blog_html, hero="")
 with open("build/blog.html", "w", encoding="utf-8") as f:
     f.write(article_index_html)
-    
